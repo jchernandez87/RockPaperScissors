@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Juego</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <p>Open your console to play the game</p>
+    <div class="overlay">   
+    </div>
+    <div class="container">
+        <div class="display">
+            <div >
+                <p class="score" data-score></p>
+                <h3 class="subTitle" data-score-text></h3>
+            </div>
+        </div>
+        <div class="top">
+            <div class="title">
+                <h1>Rock , Paper , Scissors</h1>
+                <h4>Click An Icon To Play !</h4>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="rock" data-selection="rock">
+                <img src="assets/rock.svg" alt="">
+            </button>
+            <button class="paper" data-selection="paper">
+                <img src="assets/paper.svg" alt="">
+            </button>
+            <button class="scissors" data-selection="scissors">
+                <img src="assets/scissors.svg" alt="">
+            </button>
+        </div>
+        <div class="play-container">
+            <button class="play">PLAY !!</button>
+        </div>
+    </div>
 </body>
     <script src="index.js"></script>
 </html>

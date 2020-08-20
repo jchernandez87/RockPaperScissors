@@ -1,0 +1,165 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    background-image: url(assets/back.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(15, 15, 15, 0.1);
+}
+
+.top {
+    height: 25%;
+    z-index: 2;
+}
+
+.display {
+    justify-self: flex-start;
+    height: 10%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 100px;
+}
+
+.score {
+    text-align: center;
+    -webkit-text-stroke: 2px rgba(1, 96, 116, 1);
+    color: red;
+    font-size: 60px;
+    font-family: fantasy;
+}
+
+.subTitle {
+    text-align: center;
+    font-family: fantasy;
+    color: red;
+    font-size: 50px;
+    -webkit-text-stroke: 2px rgb(99, 106, 107);
+}
+
+.title {
+    font-family: fantasy;
+    color: white;
+    font-size: 40px;
+    -webkit-text-stroke: 2px rgba(1, 96, 116, 1);
+    text-transform: uppercase;
+    justify-self: flex-start;
+    padding-bottom: 25px;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-gap: 70px;
+    width: 30%;
+    z-index: 2;
+}
+
+@media (max-width: 1400px) {
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr, 1fr, 1fr;
+        grid-gap: 50px;
+        width: 40%;
+        z-index: 2;
+    }
+}
+
+@media (max-width: 1100px) {
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr, 1fr, 1fr;
+        grid-gap: 50px;
+        width: 50%;
+        z-index: 3;
+    }
+}
+
+.img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.rock {
+    grid-column: 1/ 2;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.rock:focus {
+    outline: none;
+    transform: scale(1.1,1.1);
+}
+
+.rock:hover {
+    transform: scale(1.1,1.1);
+}
+
+.paper {
+    grid-column: 2/ 3;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.paper:focus {
+    outline: none;
+    transform: scale(1.1,1.1);
+}
+
+.paper:hover {
+    transform: scale(1.1,1.1);
+}
+
+.scissors {
+    grid-column: 3/4;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.scissors:focus {
+    outline: none;
+    transform: scale(1.1,1.1);
+}
+
+.scissors:hover {
+    transform: scale(1.1,1.1);
+}
+
+.play-container {
+    z-index: 3;
+}
+
+.play {
+    font-family: fantasy;
+    border: none;
+    color: green;
+    -webkit-text-stroke: 2px rgb(7, 37, 43);
+    font-size: 60px;
+    background-color: transparent;
+    padding: 40px;
+    cursor: pointer;
+}
+
+.play:focus {
+    outline: none;
+}

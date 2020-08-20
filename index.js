@@ -1,11 +1,23 @@
+let selectionButtons = document.querySelectorAll('[data-selection]');
 
-const option = window.prompt('')
-let playerSelection = option.toLowerCase()
+selectionButtons.forEach(selectionButton => {
+        selectionButton.addEventListener('click', e => {
+             const selectionName = selectionButton.dataset.selection
+             makeSelection(selectionName)
+        })
+})
 
-function computerPlay () {
-    const options = ['paper', 'scissors', 'rock'];
-    let selection = options[Math.floor(Math.random() * options.length)];
-    return selection;
+function makeSelection(selection) {
+        playerSelection = selection
+}
+
+let playerSelection = '';
+
+
+function computerPlay() {
+        const options = ['paper', 'scissors', 'rock'];
+        let selection = options[Math.floor(Math.random() * options.length)];
+        return selection;
 }
 
 let computerSelection = computerPlay();
@@ -16,49 +28,75 @@ function playRound(playerSelection, computerSelection) {
             
     //rock options
     if ( playerSelection == 'rock' && computerSelection == 'scissors') {
+            let humanWin = 'You Win!!';
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = humanWin
             myScore++
-            console.log('You win!!, rock beats scissors')
     } else if ( playerSelection == 'rock' && computerSelection == 'paper') {
+            let iaWin = 'IA Wins!! ';
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = iaWin;
             computerScore++
-            console.log('Paper beats rock, you lose!')
     } else if ( playerSelection == 'rock' && computerSelection == 'rock') {
-            console.log("It's a tie, play again")
-
-    } //paper options
+            let tieText = "It's a tie"
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = tieText
+    } 
+    
+    //paper options
     
     else if ( playerSelection == 'paper' && computerSelection == 'rock') {
+            let humanWin = 'You Win!!';
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = humanWin
             myScore++
-            console.log('You win!!, paper beats rock')
     } else if ( playerSelection == 'paper' && computerSelection == 'scissors') {
-            computerScore++
-            console.log("Scissors beats paper, you lose!")
+            let iaWin = 'IA Wins!! ';
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = iaWin;
+            computerScore++  
     } else if ( playerSelection == 'paper' && computerSelection == 'paper') {
-            console.log("It's a tie, play again");
-    } //scissors options
+            let tieText = "It's a tie"
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = tieText
+    } 
+    
+    //scissors options
 
     else if ( playerSelection == 'scissors' && computerSelection == 'paper') {
+            let humanWin = 'You Win!!';
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = humanWin
             myScore++
-            console.log('You win!!, scissors beats paper')
     } else if ( playerSelection == 'scissors' && computerSelection == 'rock') {
-            computerScore++
-            console.log('Rock beats scissors, you lose!')
+            let iaWin = 'IA Wins!! ';
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = iaWin;
+            computerScore++  
     } else if ( playerSelection == 'scissors' && computerSelection == 'scissors'){
-            console.log("It's a tie, play again")
+            let tieText = "It's a tie"
+            let scoreText = document.querySelector('[data-score-text]')
+            scoreText.textContent = tieText
     }
 }
 
 function game() {
-    for(i = 0; i < 5; i++) {
-        playRound(playerSelection, computerPlay())
+    playRound(playerSelection, computerPlay())
+    let scoreText = (`HUMAN: ${myScore} - IA: ${computerScore}`)
+    let para = document.querySelector('[data-score]')
+    para.textContent = scoreText
+    if (playerSelection == 0) {
+        let scoreText = "MAKE A SELECTION";
+        let para = document.querySelector('[data-score]');
+        para.textContent = scoreText;
+        let empty = '';
+        let subText = document.querySelector('[data-score-text]');
+        subText.textContent = empty;
     }
-    console.log(`%c  Human: ${myScore} - IA: ${computerScore}`, 'color: blue; font-size: 18px; font-weigth: 600')
-    if (myScore > computerScore) {
-        console.log('%c Human Wins!! ', 'color: red; font-size: 24px; font-weigth; 800; border: 1px solid red')
-    } else if (myScore == computerScore) {
-        console.log("%c It's a tie ", 'color: red; font-size: 24px; font-weigth; 800; border: 1px solid red')
-    } else {
-        console.log('%c IA Wins!! ', 'color: red; font-size: 24px; font-weigth; 800; border: 1px solid red')
-    }
+    playerSelection = 0;
 }
 
-game()
+const start = document.querySelector('.play')
+start.onclick = () => game()
+
+
